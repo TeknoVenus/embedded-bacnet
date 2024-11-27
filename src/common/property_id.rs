@@ -1,6 +1,6 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
-#[cfg_attr(feature = "serde", derive(serde_repr::Serialize_repr, serde_repr::Deserialize_repr))]
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde_repr::Deserialize_repr))]
 #[repr(u32)]
 pub enum PropertyId {
     PropAckedTransitions = 0,
