@@ -17,6 +17,7 @@ defmt = { version = "0.3.8", optional = true }
 serde = { version = "1.0", default-features = false, features = [
     "derive",
 ], optional = true }
+serde_repr = {version = "0.1.19", optional = true}
 maybe-async = { version = "0.2.10", default-features = false }
 bacnet-macros = { path = "./bacnet-macros", version = "0.1.0" }
 
@@ -33,7 +34,7 @@ tokio = { version = "1.40.0", features = ["rt-multi-thread", "net", "macros"] }
 default = ["alloc"]
 #default = []
 defmt = ["dep:defmt"]
-serde = ["dep:serde"]
+serde = ["dep:serde", "dep:serde_repr"]
 is_sync = ["maybe-async/is_sync"]
 alloc = ["serde?/alloc", "defmt?/alloc"]
 

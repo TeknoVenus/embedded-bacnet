@@ -41,7 +41,7 @@ impl ObjectId {
 // NOTE that copy is derived for usage convenience
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
-#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
+#[cfg_attr(feature = "serde", derive(serde_repr::Serialize_repr, serde_repr::Deserialize_repr))]
 #[repr(u32)]
 pub enum ObjectType {
     ObjectAnalogInput = 0,
