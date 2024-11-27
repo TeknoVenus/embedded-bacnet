@@ -261,6 +261,7 @@ impl SimpleAck {
 
 #[derive(Debug, Clone)]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 pub struct ConfirmedBacnetError {
     pub invoke_id: u8,
     pub service_choice: ConfirmedServiceChoice,
