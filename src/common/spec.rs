@@ -566,7 +566,7 @@ impl TryFrom<u32> for ErrorCode {
 
 #[derive(Debug, Clone)]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
-#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde_repr::Deserialize_repr))]
 #[repr(u16)]
 pub enum EngineeringUnits {
     // Enumerated values 0-255 are reserved for definition by ASHRAE.
