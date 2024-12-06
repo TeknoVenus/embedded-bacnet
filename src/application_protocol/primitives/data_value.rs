@@ -500,6 +500,18 @@ impl<'a> ApplicationDataValue<'a> {
                     reader.read_bytes(buf)?,
                 )))
             }
+            ApplicationTagNumber::Double => {
+                if tag.value != 8 {
+                    return Err(Error::Length((
+                        "double tag should have length of 8",
+                        tag.value,
+                    )));
+                }
+
+                Ok(ApplicationDataValue::Double(f64::from_be_bytes(
+                    reader.read_bytes(buf)?,
+                )))
+            }
             ApplicationTagNumber::ObjectId => {
                 let object_id = ObjectId::decode(tag.value, reader, buf)?;
                 Ok(ApplicationDataValue::ObjectId(object_id))
